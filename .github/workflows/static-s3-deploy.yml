@@ -8,14 +8,14 @@ jobs:
         uses: actions/checkout@v5
       - name: Check secret lengths
         run: |
-          echo "Access key length: ${#AWS_ACCESS_KEYS}"
+          echo "Access key length: ${#AWS_ACCESS_KEY}"
           echo "Secret key length: ${#AWS_SECRET_KEY}"
         env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEYS }}
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v6
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEYS }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
